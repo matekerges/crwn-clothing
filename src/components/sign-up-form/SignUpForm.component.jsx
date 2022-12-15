@@ -28,7 +28,7 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      alert("passwords do not match");
       return;
     }
 
@@ -37,13 +37,12 @@ const SignUpForm = () => {
         email,
         password
       );
-      alert("User created!");
 
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use!");
+        alert("Cannot create user, email already in use");
       } else {
         console.log("user creation encountered an error", error);
       }
@@ -69,6 +68,7 @@ const SignUpForm = () => {
           name="displayName"
           value={displayName}
         />
+
         <FormInput
           label="Email"
           type="email"
@@ -77,6 +77,7 @@ const SignUpForm = () => {
           name="email"
           value={email}
         />
+
         <FormInput
           label="Password"
           type="password"
@@ -85,6 +86,7 @@ const SignUpForm = () => {
           name="password"
           value={password}
         />
+
         <FormInput
           label="Confirm Password"
           type="password"
